@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Pramila's WebPage</title>
+   </head>
+
+   <body style="background-color:LemonChiffon;">
+      <h1 style="color:Red;">Hi There !! Welcome to Pramila's Website</h1>
+      <h3 style="color:Blue;"> 
+         Feel free to check out my Professional Profile <a href="https://myresume.stareventhorizon.com/Pramila-Kamat_Resume.pdf">here</a>
+      </h3>
+
+      <div id="myData"></div>
+    <script>
+      		fetch('https://visitorcountapi.stareventhorizon.com/Prod/visitorcount')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+			function appendData(data) {
+			    var mainContainer = document.getElementById("myData");
+			    var div = document.createElement("div");
+                div.innerHTML = "<span style='color: red;'>Current WebSite Visitor Count: </span>" + data.VisitorCount;
+   				mainContainer.appendChild(div);
+			}
+	</script>
+  </body>
+</html>
